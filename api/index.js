@@ -17,8 +17,8 @@ server.use(cors());
 // server.use("/", EmailRoutes);
 
 //conexiones
-const PORT = environment.PORT;
-const HOST = environment.HOST;
+const PORT = environment.PORT || 4000;
+const HOST = environment.HOST || "0.0.0.0";
 
 db.sync({ force: false }).then(() => {
     console.log("database coneccted!");
