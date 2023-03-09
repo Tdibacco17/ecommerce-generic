@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from "cors"
 import { environment } from './src/helpers/config.js';
-import { sequelize as db } from './db.js'; 
+import { sequelize as db } from './db.js';
 
 const server = express()
 
