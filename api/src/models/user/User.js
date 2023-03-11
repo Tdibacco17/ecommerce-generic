@@ -11,6 +11,12 @@ export const modelUser = (sequelize) => {
         name: {
             type: DataTypes.STRING,
         },
+        lastname: {
+            type: DataTypes.STRING,
+        },
+        email: {
+            type: DataTypes.STRING,
+        }
     }, {
         timestamps: false,
     });
