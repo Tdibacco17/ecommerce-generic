@@ -1,17 +1,18 @@
 import { DataTypes } from 'sequelize';
 
 export const modelCart = (sequelize) => {
-    sequelize.define('cart', {
-        id: {
+    sequelize.define('Cart', {
+        cart_id: {                                       //llave primaria
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
             allowNull: false,
             primaryKey: true,
         },
-        name: {
-            type: DataTypes.STRING,
-        },
+        // total: {                                    //total a pagar
+        //     type: DataTypes.FLOAT,
+        //     allowNull: false
+        // }
     }, {
-        timestamps: false,
+        timestamps: true,
     });
 };

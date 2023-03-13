@@ -20,7 +20,7 @@ server.use(cors());
 const PORT = environment.PORT || 4000;
 const HOST = environment.HOST || "0.0.0.0";
 
-db.sync({ force: false }).then(() => {
+db.sync({ force: true }).then(() => {
     console.log("database coneccted!");
 
     server.listen(PORT, HOST, () => {

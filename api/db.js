@@ -2,11 +2,12 @@ import { environment } from "./src/helpers/config.js";
 import { Sequelize } from "sequelize";
 import pg from 'pg';
 
-import { modelUser } from "./src/models/user/User.js";
-import { modelCart } from "./src/models/cart/Cart.js";
-import { modelPayment } from "./src/models/payment/Payment.js";
-import { modelProduct } from "./src/models/product/Product.js";
-import { modelRole } from "./src/models/roles/Role.js";
+import { modelUsers } from "./src/models/users/Users.js";
+import { modelClient } from "./src/models/client/Client.js";
+import { modelAddresses } from "./src/models/addresses/Addresses.js";
+// import { modelCart } from "./src/models/cart/Cart.js";
+// import { modelPayment } from "./src/models/payment/Payment.js";
+// import { modelProduct } from "./src/models/product/Product.js";
 
 const { PG_USER, PG_PASSWORD, PG_HOST, PG_PORT, PG_DATABASE } = environment;
 
@@ -16,12 +17,22 @@ export const sequelize = new Sequelize(`postgresql://${PG_USER}:${PG_PASSWORD}@$
     dialectModule: pg
 });
 
-modelUser(sequelize)
-modelCart(sequelize)
-modelPayment(sequelize)
-modelProduct(sequelize)
-modelRole(sequelize)
+//inicializacion
+modelUsers(sequelize)
+modelClient(sequelize)
+modelAddresses(sequelize)
 
-//faltan relaciones
+// modelCart(sequelize)
+// modelPayment(sequelize)
+// modelProduct(sequelize)
 
-export const { User, Cart, Role, Product, Payment } = sequelize.models;
+export const { User, Client, Address } = sequelize.models;
+
+console.log(sequelize.models)
+
+//relaciones
+
+
+
+// Product.belongsToMany(Cart, { through: "Product_Cart" })
+// Cart.belongsToMany(Product, { through: "Product_Cart" })
