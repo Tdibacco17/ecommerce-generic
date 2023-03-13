@@ -40,6 +40,10 @@ export const modelAddress = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
+        user_id: {
+            type: DataTypes.UUID,
+            allowNull: false,
+        },
     }, {
         timestamps: false,
     });
