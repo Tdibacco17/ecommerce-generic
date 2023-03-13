@@ -1,6 +1,6 @@
 import { DataTypes } from 'sequelize';
 
-export const modelAddresses = (sequelize) => {
+export const modelAddress = (sequelize) => {
     sequelize.define('Address', {
         address_id: {
             type: DataTypes.UUID,
@@ -12,7 +12,7 @@ export const modelAddresses = (sequelize) => {
             type: DataTypes.ENUM('delivery', 'billing'),
             allowNull: false,
         },
-        address: {
+        street: {
             type: DataTypes.STRING,
             allowNull: false,
         },
