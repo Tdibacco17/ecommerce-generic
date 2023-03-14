@@ -1,48 +1,52 @@
 import { DataTypes } from 'sequelize';
 
-export const modelAddress = (sequelize) => {
+export const AddressModel = (sequelize) => {
     sequelize.define('Address', {
-        address_id: {
+        Address_ID: {
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
             allowNull: false,
             primaryKey: true,
         },
-        type_of_residence: {
+        Type_Of_Residence: {
             type: DataTypes.ENUM('delivery', 'billing'),
             allowNull: false,
         },
-        street: {
+        Street: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        country: {
+        Country: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        city: {
+        City: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        neighborhood: {
+        Neighborhood: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        zip_code: {
+        Zip_Code: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        number: {
+        Street_Number: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        number_floor: {
+        Number_Floor: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        user_id: {
+        User_ID: {
             type: DataTypes.UUID,
             allowNull: false,
+            references: {
+                model: 'Users',
+                key: 'User_ID'
+            }
         },
     }, {
         timestamps: false,

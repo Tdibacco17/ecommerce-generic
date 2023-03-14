@@ -3,6 +3,9 @@ import cors from "cors"
 import { environment } from './src/helpers/config.js';
 import { sequelize as db } from './db.js';
 
+import { router as userRoutes } from "./src/routes/userRoute.js"
+import { router as clientRoutes } from "./src/routes/clientRoute.js"
+
 const server = express()
 
 //middlewares
@@ -11,8 +14,8 @@ server.use(express.json());
 server.use(cors());
 
 //acceso a rutas
-// server.use("/", UserRoutes);
-// server.use("/", UserLoginRoutes);
+server.use("/", userRoutes);
+server.use("/", clientRoutes);
 // server.use("/", AdminRoutes);
 // server.use("/", EmailRoutes);
 

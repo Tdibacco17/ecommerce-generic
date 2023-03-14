@@ -1,34 +1,37 @@
 import { DataTypes } from 'sequelize';
 
-export const modelClient = (sequelize) => {
+export const ClientModel = (sequelize) => {
     sequelize.define('Client', {
-        client_id: {
+        Client_ID: {
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
             allowNull: false,
             primaryKey: true,
         },
-        first_name: {
+        First_Name: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        last_name: {
+        Last_Name: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        phone_number: {
+        Phone_Number: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        DNI: {
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true
         },
-        dni: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            unique: true
-        },
-        user_id: {
+        User_ID: {
             type: DataTypes.UUID,
             allowNull: false,
+            references: {
+                model: 'Users',
+                key: 'User_ID'
+            }
         },
     }, {
         timestamps: false,
