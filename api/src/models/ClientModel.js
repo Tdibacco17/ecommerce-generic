@@ -9,15 +9,15 @@ export const ClientModel = (sequelize) => {
             primaryKey: true,
         },
         First_Name: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(255),
             allowNull: false,
         },
         Last_Name: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(255),
             allowNull: false,
         },
         Phone_Number: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(255),
             allowNull: false,
         },
         DNI: {

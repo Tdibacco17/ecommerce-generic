@@ -13,19 +13,19 @@ export const AddressModel = (sequelize) => {
             allowNull: false,
         },
         Street: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(255),
             allowNull: false,
         },
         Country: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(255),
             allowNull: false,
         },
         City: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(255),
             allowNull: false,
         },
         Neighborhood: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(255),
             allowNull: false,
         },
         Zip_Code: {
@@ -37,7 +37,7 @@ export const AddressModel = (sequelize) => {
             allowNull: false,
         },
         Number_Floor: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(255),
             allowNull: false,
         },
         User_ID: {

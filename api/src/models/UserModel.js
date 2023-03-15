@@ -9,7 +9,7 @@ export const UserModel = (sequelize) => {
             primaryKey: true,
         },
         Email: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(255),
             allowNull: false,
             unique: true
         },
@@ -18,7 +18,7 @@ export const UserModel = (sequelize) => {
             allowNull: true,
         },
         Password: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(255),
             allowNull: false,
         },
         Role: {

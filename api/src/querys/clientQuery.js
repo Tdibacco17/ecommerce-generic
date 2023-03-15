@@ -12,7 +12,7 @@ export const addClientDB = async (first_name, last_name, phone_number, dni, user
             res.json({
                 msg: "Ya existe un cliente con este DNI",
                 success: false,
-                ErrorCode: 9
+                ErrorCode: 8
             })
         } else {
             const newClient = await Client.create({
@@ -33,7 +33,7 @@ export const addClientDB = async (first_name, last_name, phone_number, dni, user
                 res.json({
                     msg: "Ocurrio un error al agregar el cliente a la DB",
                     success: false,
-                    ErrorCode: 10
+                    ErrorCode: 9
                 })
             }
         }
@@ -41,7 +41,7 @@ export const addClientDB = async (first_name, last_name, phone_number, dni, user
         res.json({
             msg: "El UserID ingresado no existe en la DB",
             success: false,
-            ErrorCode: 8
+            ErrorCode: 7
         })
     }
 }

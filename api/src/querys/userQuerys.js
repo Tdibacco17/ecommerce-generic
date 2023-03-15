@@ -65,3 +65,47 @@ export const loginVerify = async (email, password, res) => {
         })
     }
 }
+
+export const newPassword = async (old_password, new_password, user_id, res) => {
+
+    const verify_userID = await User.findOne({ where: { User_ID: user_id } });
+
+    if (verify_userID) {
+        const { dataValues: { Password, ...dataValues } } = verify_userID;
+
+        const passwordCheck = await compare(old_password, Password)
+
+        if (passwordCheck) {
+
+            const passwordHasshed = await encrypt(new_password)
+
+            const newPassUser = await User.update({ Password: passwordHasshed }, { where: { User_ID: user_id } });
+
+            if (newPassUser) {
+                res.json({
+                    msg: "Nueva contraseña creada correctamente",
+                    success: true,
+                    result: newPassUser
+                })
+            } else {
+                res.json({
+                    msg: "Ocurrio un error al agregar la nueva contraseña a la DB",
+                    success: false,
+                    ErrorCode: 7
+                })
+            }
+        } else {
+            res.json({
+                msg: "Contraseña incorrecta",
+                success: false,
+                ErrorCode: 6
+            })
+        }
+    } else {
+        res.json({
+            msg: "El UserID ingresado no existe en la DB",
+            success: false,
+            ErrorCode: 5
+        })
+    }
+}
